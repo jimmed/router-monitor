@@ -33,8 +33,8 @@ function parseStatusPage(html) {
     throw new Error('No page returned')
   }
 
-  return $('table', html)
-    .reduce((tables, table) => {
+  var tables = $('table', html)
+    .reduce((acc, table) => {
       var headers = $('tr.header td', table)
         .map(cell => cell.children.reduce((a, b) => a + b.data, ''))
         .map(camelize)
@@ -59,8 +59,13 @@ function parseStatusPage(html) {
         tableData[group] = rowData
       })
 
-      return tables.concat([ tableData ])
+      return acc.concat([ tableData ])
     }, [])
+
+  var connections = tables[0]
+  Object.keys(tables[1]).forEach(key => connections.wan[key] = tables[1][key]);
+
+  return connections;
 }
 
 function getStatus(opts) {
