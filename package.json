@@ -12,6 +12,7 @@
     "bluebird": "^3.2.1",
     "cheerio": "^0.20.0",
     "moment": "^2.11.1",
+    "netroute": "^1.0.2",
     "node-fetch": "^1.3.3"
   },
   "devDependencies": {

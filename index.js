@@ -1,8 +1,9 @@
 var scraper = require('./lib/sky/scraper')
+var findGateway = require('./lib/util/findGateway')
 var inspect = require('util').inspect
 
 testFlight({
-  host: '192.168.0.1',
+  host: findGateway(),
   pass: process.env.ROUTER_PASS
 })
 
