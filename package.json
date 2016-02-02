@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/standard ./index.js ./lib"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +13,8 @@
     "cheerio": "^0.20.0",
     "moment": "^2.11.1",
     "node-fetch": "^1.3.3"
+  },
+  "devDependencies": {
+    "standard": "^5.4.1"
   }
 }
